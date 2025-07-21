@@ -1,0 +1,141 @@
+.banner-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    padding: var(--space-sm) var(--space-sm);
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+.banner-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    min-height: 280px;
+    /* reduced from 360px */
+    position: relative;
+}
+
+.banner-content {
+    flex: 1;
+    z-index: 2;
+}
+
+.banner-content h2 {
+    font-size: var(--fs-h2);
+    font-family: var(--ff-heading);
+    color: var(--color-heading);
+    margin-bottom: var(--space-xs);
+}
+
+.banner-content p {
+    font-size: var(--fs-body);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+    max-width: 460px;
+}
+
+.banner-btn {
+    padding: var(--space-xs) var(--space-md);
+    background-color: var(--color-link);
+    color: #fff;
+    border: none;
+    font-family: 'Passero One', sans-serif;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.banner-btn:hover {
+    background-color: var(--color-link-hover);
+}
+
+/* === Image blocks on desktop === */
+.banner-image {
+    flex: 1;
+    height: 100%;
+    border-radius: clamp(.5rem, 2vw + 1rem, 1.5rem);
+    background-size: cover;
+    background-position: center;
+    min-height: 240px;
+    /* reduced from 340px */
+    background-color: var(--color-card-bg);
+}
+
+.top-image {
+    background-image: url('/poster4.jpg');
+}
+
+.bottom-image {
+    background-image: url('/poster5.jpg');
+}
+
+/* === Mobile styles === */
+@media (max-width: 768px) {
+
+    .banner-row,
+    .banner-row.reverse {
+        flex-direction: column;
+        padding: 0;
+        gap: 0;
+      
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .top-row,
+    .bottom-row {
+        position: relative;
+        padding: var(--space-xl) var(--space-md);
+        background-size: cover;
+        background-position: center;
+        min-height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .top-row {
+        background-image: url('/poster4.jpg');
+     
+    }
+
+    .bottom-row {
+        background-image: url('/poster5.jpg');
+
+
+    }
+
+    .top-row::before,
+    .bottom-row::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .banner-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+    }
+
+    .banner-content h2,
+    .banner-content p {
+        color: white;
+    }
+
+    .banner-btn {
+        background-color: var(--color-4);
+    }
+
+    .banner-btn:hover {
+        background-color: var(--color-7);
+    }
+}

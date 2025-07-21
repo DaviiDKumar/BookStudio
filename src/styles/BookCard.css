@@ -1,0 +1,341 @@
+
+/* === BOOK CARD SPECIFIC STYLES === */
+
+.bookCard {
+  background-color: var(--color-nav-bg);
+  border-radius: 4px;
+  box-shadow: 0 2px 2px var(--color-7);
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  /* --- MODIFIED: REMOVED FIXED WIDTH/HEIGHT. Use min/max for fluid width. --- */
+  min-width: 320px;
+  /* Minimum width for the card on very small screens */
+  max-width: 380px;
+  /* Maximum width for the card on large screens */
+  width: 100%;
+  /* Important: allows it to take full grid column width */
+  height: auto;
+  /* Allow height to adjust based on content */
+  overflow: hidden;
+  border: 1px solid var(--color-7);
+}
+
+.bookCardTop {
+  display: flex;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border-light);
+  /* Removed max-height: 100%; as it conflicts with content flow */
+  align-items: flex-start;
+}
+
+.bookImageContainer {
+  flex-shrink: 0;
+  /* Keep aspect ratio but scale with overall card size */
+  width: clamp(80px, 25vw, 100px);
+  /* Adjust image size based on viewport/card width */
+  height: clamp(100px, 30vw, 120px);
+  border-radius: var(--space-xxs);
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bookImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bookInfo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  /* Ensure bookInfo takes up consistent height regardless of star rating */
+  min-height: calc(clamp(100px, 30vw, 120px) - var(--space-sm)); /* Approx height of image minus top/bottom padding of bookCardTop */
+}
+
+.bookTitle {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h6);
+  color: var(--color-heading);
+  margin-bottom: var(--space-xxs);
+  line-height: 1.2;
+  font-weight: 700;
+  /* New for consistent height and truncation */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Changed from 2 to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+   line-clamp: 3; /* <--- ADD THIS LINE */
+  min-height: calc(var(--fs-h6) * 1.2); /* At least 1 line height */
+  max-height: calc(var(--fs-h6) * 1.2 * 3); /* Changed from *2 to *3 for max 3 lines height */
+ 
+}
+
+
+.bookAuthor {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xxs);
+  line-height: 1.6;
+  /* New for consistent height and truncation */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Changed from 2 to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: 3;
+  text-overflow: ellipsis;
+  min-height: calc(var(--fs-xs) * 1.6); /* At least 1 line height */
+  max-height: calc(var(--fs-xs) * 1.6 * 3); /* Changed from *2 to *3 for max 3 lines height */
+}
+/* Star Rating Styles */
+.bookRating {
+  display: flex;
+  align-items: center;
+  color: gold;
+  font-size: var(--fs-small);
+  margin-top: var(--space-xxs);
+  margin-bottom: var(--space-xxs);
+  /* Ensure consistent height for the rating row */
+  min-height: var(--fs-small); /* At least the height of one line of text */
+}
+
+.bookRating span {
+  color: gold;
+  font-size: inherit;
+  line-height: 1;
+}
+
+.bookRating .empty-star {
+  color: lightgray;
+}
+
+.bookRating .half-star {
+  color: gold;
+}
+
+.ratingAndCount {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xxs);
+  margin-bottom: var(--space-xxs);
+}
+
+.ratingCount {
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+}
+
+.bookPrice {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-p);
+  font-weight: 600;
+  color: var(--color-7);
+  margin-top: var(--space-xxs);
+}
+
+.bookPrice.not-for-sale,
+.bookPrice.free-ebook {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.bookCardBottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.bookAvailability {
+  margin-bottom: var(--space-xxs);
+}
+
+.availabilityBadge {
+  display: inline-block;
+  padding: var(--space-xxs) var(--space-xs);
+  border-radius: var(--space-xxs);
+  font-size: var(--fs-xxs);
+  font-family: var(--ff-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: var(--color-3);
+  color: var(--color-8);
+}
+
+.ebook-badge,
+.free-ebook-badge {
+  background-color: var(--color-4);
+  color: var(--color-9);
+}
+
+.hardcopy-badge {
+  background-color: var(--color-5);
+  color: var(--color-9);
+}
+
+.generic-not-available {
+  background-color: #e0e0e0;
+  color: #555;
+}
+
+.bookDescription {
+  font-size: var(--fs-xs);
+  color: var(--color-text);
+  text-align: justify;
+  max-height: calc(var(--fs-xs) * 1.6 * 6);
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  margin-bottom: var(--space-xs);
+}
+
+.viewDetailsButton {
+  background-color: var(--color-7);
+  color: white;
+  padding: var(--space-xs) var(--space-sm);
+  border: none;
+  border-radius: 2px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: auto;
+  transition: all 0.4s ease;
+}
+
+.viewDetailsButton:hover {
+  background-color: var(--color-8);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+  text-decoration: underline;
+}
+
+.viewDetailsButton:active {
+  background-color: var(--color-7);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transform: translateY(0);
+}
+
+@media (max-width:640px) {
+  .viewDetailsButton{
+
+    width: 45%;
+  }
+  
+}
+
+/* === SKELETON CARD STYLES === */
+.skeleton-card {
+  opacity: 0.7;
+  animation: pulse 1.5s infinite ease-in-out;
+  height: 100%;
+  min-width: 300px;
+  max-width: 380px;
+  width: 100%;
+}
+
+.skeleton-image,
+.skeleton-title,
+.skeleton-author,
+.skeleton-price,
+.skeleton-description,
+.skeleton-badge,
+.skeleton-button {
+  background-color: #ccc;
+  border-radius: var(--space-xxs);
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.skeleton-image {
+  width: clamp(80px, 25vw, 100px);
+  height: clamp(100px, 30vw, 120px);
+}
+
+.skeleton-top-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.skeleton-title {
+  height: var(--fs-h6);
+  width: 80%;
+}
+
+.skeleton-author {
+  height: var(--fs-xs);
+  width: 60%;
+}
+
+.skeleton-price {
+  height: var(--fs-p);
+  width: 40%;
+  margin-top: auto;
+}
+
+.skeleton-card-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.skeleton-description {
+  height: calc(var(--fs-xs) * 1.6 * 6);
+  width: 100%;
+}
+
+.skeleton-availability-badges {
+  display: flex;
+  gap: var(--space-xxs);
+}
+
+.skeleton-badge {
+  height: var(--fs-xxs) + var(--space-xxs) * 2;
+  width: 80px;
+}
+
+.skeleton-button {
+  height: var(--fs-small) + var(--space-sm);
+  width: 100%;
+  margin-top: auto;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  50% {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}

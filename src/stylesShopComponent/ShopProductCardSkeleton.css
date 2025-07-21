@@ -1,0 +1,86 @@
+/* src/stylesShopComponent/ShopProductCardSkeleton.css */
+
+/* Placeholder colors - adjust these to match your theme's neutrals */
+:root {
+    --color-placeholder-light: #e0e0e0; /* Light gray for text/background areas */
+    --color-placeholder-dark: #bdbdbd;  /* Darker gray for image/prominent areas */
+    --color-bg-light: #ffffff;          /* Background of the skeleton card */
+    --color-border-light: #e0e0e0;      /* Border color for consistency */
+}
+
+
+.product-card-skeleton {
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background-color: var(--color-bg-light); /* Or white */
+    overflow: hidden; /* Important for the shimmer effect */
+    position: relative;
+    /* Ensure height consistency with actual cards */
+    min-height: 300px; /* Adjust as needed, matching your ShopProductCard's approximate height */
+}
+
+/* Shimmer animation */
+.product-card-skeleton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%, /* Adjust opacity for shimmer visibility */
+        rgba(255, 255, 255, 0) 100%);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 150%;
+    }
+}
+
+
+.skeleton-image {
+    width: 100%;
+    height: 200px; /* Matches the height set in ShopProductCard for consistency */
+    background-color: var(--color-placeholder-dark); /* Darker gray for placeholder */
+    border-radius: var(--radius-xs);
+}
+
+.skeleton-title {
+    width: 80%;
+    height: 1.2em; /* Approximately the height of your h6 */
+    background-color: var(--color-placeholder-light); /* Lighter gray */
+    border-radius: var(--radius-xs);
+    margin-bottom: 0.5rem; /* Space below title */
+}
+
+.skeleton-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Pushes skeleton info to the bottom like product info */
+}
+
+.skeleton-category,
+.skeleton-price {
+    height: 1em; /* Approximately the height of your p and Link text */
+    background-color: var(--color-placeholder-light);
+    border-radius: var(--radius-xs);
+}
+
+.skeleton-category {
+    width: 40%;
+}
+
+.skeleton-price {
+    width: 30%;
+}

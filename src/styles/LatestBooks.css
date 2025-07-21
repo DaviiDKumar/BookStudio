@@ -1,0 +1,341 @@
+.homepage-section {
+  font-family: var(--ff-sans);
+  padding: var(--space-md);
+  max-width: 95vw;
+  margin: var(--space-md) auto;
+  background: transparent;
+  border-radius: var(--space-xs);
+  box-shadow: 0 4px 20px rgb(203, 235, 222);
+  position: relative;
+  overflow: hidden; /* Keep this to contain the pseudo-element and initial content */
+}
+
+.homepage-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.homepage-section>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--color-heading);
+  margin: 0;
+  padding-right: var(--space-sm);
+}
+
+.view-more-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xxs);
+  color: var(--color-8);
+  padding: var(--space-xs) var(--space-sm);
+  background: transparent;
+  border: none;
+  font-size: var(--fs-button);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.5s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+.view-more-button:hover {
+  color: var(--color-link-hover);
+  transform: translateY(-2px);
+}
+
+.view-more-button svg {
+  transition: all 0.6s ease;
+}
+
+.view-more-button:hover svg {
+  transform: scale(1.5) translateX(8px);
+}
+
+.view-more-button:active {
+  transform: translateY(0);
+}
+
+/* Book Grid (Default for Larger Screens - Desktop/Tablet) */
+.book-grid {
+  display: flex; /* Use flexbox for a single row */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  gap: var(--space-md);
+  padding-bottom: var(--space-sm); /* Space for horizontal scrollbar */
+  scroll-snap-type: x mandatory; /* Optional: Enable horizontal snap */
+  scroll-padding-left: var(--space-md); /* Adjust if cards are not aligned properly */
+
+  /* --- Custom Scrollbar Styling for WebKit browsers --- */
+  &::-webkit-scrollbar {
+    height: 8px; /* Height of the horizontal scrollbar */
+    background-color: transparent; /* Makes the track background invisible */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--color-1); /* Track behind the thumb */
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-8); /* Color of the scroll thumb */
+    border-radius: 0px; /* Rounded corners for the thumb */
+    border: 2px solid transparent; /* Creates a thin border/padding effect around the thumb */
+    background-clip: padding-box; /* Ensures border is outside the fill area */
+  }
+
+  /* Optional: Hover state for the scroll thumb */
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  /* Hide scrollbar buttons (arrows) */
+  &::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+}
+
+/* No 1280px media query for book-grid, it will inherit the horizontal flex from above */
+/* @media (max-width: 1280px) { ... } */
+
+
+/* Book Card (Default for Larger Screens) */
+.book-card {
+  min-height: 240px;
+  background-color: white;
+  border-radius: var(--space-xxs);
+  box-shadow: 0 2px 10px var(--color-card-shadow);
+  display: flex;
+  padding: var(--space-xs);
+  gap: var(--space-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  align-items: stretch;
+  height: 100%; /* Take full height of the flex container */
+  flex-shrink: 0; /* Prevent cards from shrinking */
+  width: 440px; /* Define a fixed width for horizontal scrolling cards */
+  scroll-snap-align: start; /* Snap to the start of each card */
+}
+
+.book-card:hover {
+  box-shadow: 0 6px 15px var(--color-card-shadow);
+}
+
+.book-image-container {
+  flex-shrink: 0;
+  width: 130px;
+  height: auto;
+  overflow: hidden;
+  box-shadow: 0 2px 5px var(--color-card-shadow);
+  border-radius: .2rem;
+}
+
+.book-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.book-category {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  margin-bottom: var(--space-xxs);
+}
+
+.book-title {
+  font-size: var(--fs-h6);
+  font-weight: 700;
+  color: var(--color-heading);
+  margin: 0 0 var(--space-xs) 0;
+  line-height: 1.3;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: calc(1.3em * 2);
+}
+
+.book-description {
+  font-size: var(--fs-small);
+  color: var(--color-text);
+  line-height: 1.5;
+  margin: 0;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  min-height: calc(1.5em * 2);
+}
+
+.buy-now-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .2rem;
+  margin-top: auto;
+
+  padding: var(--space-xxs) var(--space-xs);
+  max-width: fit-content;
+  border-radius: 5px;
+  background-color: var(--color-7);
+  color: white;
+  border: none;
+  outline: none;
+}
+
+.buy-now-btn-span {
+  color: white;
+  font-family: var(--ff-funky);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.book-card:hover .buy-now-btn svg {
+  animation: moveX 1s linear infinite;
+}
+
+.buy-now-btn:hover {
+  background-color: var(--color-9);
+}
+
+.buy-now-btn:hover span,
+.buy-now-btn:hover svg {
+  color: var(--color-4);
+}
+
+@keyframes moveX {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: scale(1.2) translateX(5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* --- Mobile Specific Styling (Vertical Snap Scroll) --- */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .title {
+    font-size: var(--fs-h3);
+  }
+
+  .view-more-button {
+    width: fit-content;
+  }
+
+  .book-grid {
+    /* Override desktop horizontal properties for mobile vertical snap scroll */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal scroll */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+
+    height: 400px; /* Crucial: Define a fixed height for vertical scrolling container */
+    max-height: 70vh; /* Responsive max height */
+
+    scroll-snap-type: y mandatory; /* Enable vertical snapping */
+    scroll-padding-top: var(--space-md); /* Offset for snap position */
+
+    /* Reset padding-bottom from desktop for vertical layout */
+    padding-bottom: 0;
+
+    /* --- Reset custom scrollbar for mobile vertical scroll --- */
+    &::-webkit-scrollbar {
+      width: 8px; /* Width of the vertical scrollbar */
+      height: 0; /* Reset height for vertical scrollbar */
+    }
+  }
+
+  .book-card {
+    /* Override desktop fixed width and horizontal snap */
+    width: 100%;
+    max-width: 90vw; /* Keep a max-width for better spacing relative to viewport */
+    margin-left: auto; /* Center the card */
+    margin-right: auto; /* Center the card */
+
+    flex-shrink: 0; /* Important for snapping */
+    scroll-snap-align: start; /* Snap to the start of each card */
+
+    height: 280px; /* Fixed height for "peek" effect. Adjust as needed. */
+    min-height: 240px;
+    padding-bottom: var(--space-sm); /* Add padding if needed between cards in vertical scroll */
+  }
+
+  /* Adjust book title alignment for vertical stacking if desired */
+  .book-card .book-title {
+    text-align: left; /* Align title left in vertical stack */
+    margin: 0; /* Reset margin for vertical stack */
+    max-width: 100%; /* Allow it to take full width */
+  }
+
+  .buy-now-btn {
+    margin-top: auto;
+    margin-bottom: var(--space-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage-section {
+    padding: var(--space-sm);
+  }
+
+  .title {
+    font-size: var(--fs-h4);
+  }
+
+  .book-image-container {
+    margin-bottom: var(--space-xs);
+  }
+
+  .book-card {
+    height: 260px; /* Slightly adjust height for smaller phones */
+  }
+}

@@ -1,0 +1,76 @@
+/* ============================
+   🔘 BUTTON UTILITIES
+   ============================ */
+
+
+
+/* 1️⃣ Simple Outline Button */
+.btn-outline {
+    background: transparent;
+    color: var(--color-6);
+    border: 2px solid var(--color-6);
+
+}
+
+.btn-outline:hover {
+
+    color: var(--color-8);
+    border-color: var(--color-8);
+    text-decoration: underline;
+}
+
+/* 2️⃣ Solid Background Button */
+.btn-solid {
+    background-color: var(--color-7);
+    color: var(--color-1);
+    border: 2px solid transparent;
+}
+
+.btn-solid:hover {
+    background-color: var(--color-8);
+    color: white;
+}
+
+/* 3️⃣ Shadow Button */
+.btn-shadow {
+    background-color: var(--color-5);
+    color: var(--color-body);
+    border: 2px solid var(--color-4);
+    box-shadow: 0px 0px 15px var(--color-5);
+}
+
+.btn-shadow:hover {
+    background-color: var(--color-6);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0px 0px 15px var(--color-6);
+}
+
+/* 4️⃣ Link Style Button with Gradient Hover */
+.btn-link {
+    background: none;
+    border: none;
+    color: var(--color-6);
+    position: relative;
+    padding: 0.5rem 1rem;
+    padding-bottom: 0;
+}
+
+.btn-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(to right, var(--color-6), var(--color-8));
+    transition: width 0.3s ease;
+}
+
+.btn-link:hover {
+    color: var(--color-9);
+    text-decoration: none;
+}
+
+.btn-link:hover::after {
+    width: 100%;
+}

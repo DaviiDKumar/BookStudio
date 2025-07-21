@@ -1,0 +1,158 @@
+/* ========================
+   🛍️ Product Section Styles
+   ======================== */
+
+.product-section {
+    padding: var(--space-md) var(--space-xs);
+    padding-bottom:0 ;
+
+}
+
+.product-section-title {
+    font-size: var(--fs-h3);
+    color: var(--color-9);
+    text-align: center;
+    box-shadow: 7px 7px 6px #8c98a4, -5px -5px 5px #8c98a4;
+    max-width: fit-content;
+    margin: 0 auto var(--space-md);
+    padding: var(--space-xs) var(--space-md);
+    border-bottom: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+}
+
+
+
+.category-bar {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 var(--space-md);
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md)
+}
+
+
+
+.category-btn {
+    padding: var(--space-xs) var(--space-md);
+    font-family: 'Passero One', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-btn.active {
+    text-decoration: underline;
+    background-color: var(--color-link-hover);
+    color: #fff;
+    border-color: var(--color-border-dark);
+}
+
+@media (max-width:1024px) {
+    .category-btn {
+        padding: var(--space-xs) var(--space-md);
+        font-family: 'Passero One', sans-serif;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid var(--color-7);
+    }
+
+    .category-btn.active {
+        text-decoration: none;
+
+    }
+
+}
+
+
+
+.product-subsection {
+   
+    padding: 0 var(--space-md);
+}
+
+.product-subsection-title {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    font-family: var(--ff-funky);
+    font-size: var(--fs-h4);
+    margin-bottom: var(--space-xs);
+    text-align: left;
+}
+
+/* ========================
+   🌀 Swiper Layout
+   ======================== */
+
+.swiper-wrapper-box {
+    position: relative;
+}
+
+.swiper-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+
+
+.product-swiper {
+    padding-bottom: 2.5rem;
+}
+
+/* Pagination Dots */
+.swiper-pagination {
+    text-align: center;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: var(--color-border-light);
+    opacity: 1;
+    margin: 0 6px !important;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--color-link-hover);
+}
+
+/* Custom Nav Buttons */
+.custom-nav-buttons {
+    display: flex;
+    padding: var(--space-xs);
+    gap: var(--space-xs);
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.custom-swiper-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(2rem, 2vw + 1rem, 3rem);
+    height: clamp(2rem, 2vw + 1rem, 3rem);
+    font-size: clamp(1rem, 2vw + 1rem, 2rem);
+    font-weight: 300;
+    border-radius: 50%;
+    border: 2px solid var(--color-4);
+    color: var(--color-4);
+    background-color: whitesmoke;
+}
+
+.custom-swiper-btn:disabled {
+    background-color: rgb(196, 196, 196);
+    color: rgb(232, 232, 232);
+    border: 2px solid rgb(217, 217, 217);
+}
+
+/* Fallback Loading Text */
+.loading-text {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    padding: 2rem 0;
+}

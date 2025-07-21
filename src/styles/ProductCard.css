@@ -1,0 +1,89 @@
+.product-card {
+  background-color: rgb(242, 241, 241);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s ease;
+  border: 2px solid rgb(195, 195, 195);
+  box-shadow: 0 0 10px rgb(145, 167, 179);
+}
+
+
+
+.product-card-img {
+  width: 100%;
+  height: 150px;
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+.product-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-card-body {
+  padding: var(--space-xs) var(--space-xs);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--space-xs)
+}
+
+.product-title {
+
+  font-size: var(--fs-h6);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.1;
+  min-height: 3rem;
+  /* Adjusted for 2 lines */
+}
+
+.product-author {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: var(--fs-p);
+  color: rgb(96, 96, 96);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.3;
+  min-height: 2.5rem;
+  /* Adjusted for 2 lines */
+}
+
+.product-price {
+  font-weight: 900;
+  color: var(--color-link);
+}
+
+.product-rating {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.product-card-footer {
+  margin-top: auto;
+}
+
+.product-btn {
+  width: 100%;
+  background-color: var(--color-link);
+  color: white;
+  font-family: 'Passero One', cursive;
+  border: none;
+  padding: var(--space-xs);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-btn:hover {
+  background-color: var(--color-link-hover);
+}

@@ -1,0 +1,203 @@
+/* =============================
+   📚 NAVBAR STYLES
+   ============================= */
+
+.navbar {
+  width: 100%;
+  background-color: var(--color-nav-bg);
+  background-image: url("/mainbg.png");
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid var(--color-border-light);
+  box-shadow: 2px 3px 5px #212529;
+}
+
+.navbar__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--space-md);
+}
+
+/* LOGO */
+.navbar__logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+
+  gap: var(--space-xs);
+}
+
+
+
+.Logo-img {
+  width: clamp(3.5rem, 7vw + 1rem, 7.5rem);
+}
+
+/* DESKTOP MENU */
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+
+}
+
+.navbar__menu ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  box-shadow: 2px 3px 5px #212529;
+  padding: var(--space-sm) var(--space-md);
+}
+
+.navbar__menu a {
+  font-family: var(--ff-funky);
+  font-size: var(--fs-h6);
+  color: var(--color-link);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.navbar__menu a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* =============================
+   📱 MOBILE NAV STYLES
+   ============================= */
+@media (max-width: 1024px) {
+
+  /* Toggle Icon */
+  .navbar__toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1003;
+    padding: 0.5rem;
+    margin-right: var(--space-xl);
+  }
+
+  .bar {
+    width: 2rem;
+    height: 1px;
+    background: var(--color-heading);
+    transition: all 0.4s ease;
+  }
+
+  .navbar__toggle.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .navbar__toggle.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar__toggle.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Mobile Nav */
+  .navbar__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 45vw;
+    background-color: var(--color-nav-bg);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    padding: var(--space-md) 0;
+    background-image: url("/mainbg.png");
+    flex-direction: column;
+    gap: var(--space-md);
+    z-index: 1002;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar__menu.open {
+    transform: translateX(0);
+  }
+
+  .navbar__menu ul {
+    flex-direction: column;
+    gap: var(--space-md);
+    width: 100%;
+    padding-top: var(--space-sm);
+    box-shadow: none;
+  }
+
+  .navbar__menu li {
+    width: 100%;
+    text-align: left;
+    padding: var(--space-xxs) var(--space-xs);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--color-9);
+
+  }
+
+  .navbar__menu .btn {
+    width: 100%;
+  }
+
+  /* Overlay (30% width) - Updated for smoother transition */
+  .navbar__overlay {
+    position: fixed;
+    top: 0;
+    left: 70%;
+    width: 30%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    /* Added for smooth fade-in/out */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  .navbar__overlay.show {
+    /* Show the overlay with fade-in effect */
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@media (max-width:720px) {
+  .navbar__menu {
+    width: 70vw;
+  }
+
+  /* Toggle Icon */
+  .navbar__toggle {
+
+    margin-right: var(--space-md);
+  }
+
+}
+
+/* RESET FOR LARGE SCREENS */
+@media (min-width: 1025px) {
+  .navbar__menu {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    height: auto;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .navbar__toggle,
+  .navbar__overlay {
+    display: none;
+  }
+}

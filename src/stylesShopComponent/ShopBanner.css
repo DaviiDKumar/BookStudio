@@ -1,0 +1,144 @@
+/* src/stylesShopComponent/ShopBanner.css */
+
+.shop-banner {
+    /* Renamed class */
+    position: relative;
+    width: 95vw;
+    height: 65vh;
+    /* Adjust height as needed, e.g., 70vh, 500px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    isolation: isolate;
+    margin: var(--space-md) auto;
+    border-radius: 10px;
+}
+
+@media (max-width:768px) {
+    .shop-banner {
+        /* Renamed class */
+        position: relative;
+        width: 100%;
+        max-height: 35vh;
+        /* Adjust height as needed, e.g., 70vh, 500px */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        color: white;
+        text-align: center;
+        isolation: isolate;
+        border-radius: 0;
+    }
+
+}
+
+.shop-video {
+    /* Renamed class */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.shop-banner-content {
+    /* Renamed class */
+    position: relative;
+    z-index: 3;
+    max-width: 900px;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+}
+
+.shop-banner-content h1 {
+    color: var(--color-1);
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.shop-banner-content p {
+    color: white;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-link);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius-sm, 5px);
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+    color: white;
+    background-color: var(--color-link-hover);
+    transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .shop-banner {
+        height: 50vh;
+    }
+
+    .shop-banner-content h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .shop-banner-content p {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+
+    .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .shop-banner-content {
+        padding: 1rem;
+    }
+
+    .shop-banner-content h1 {
+        font-size: clamp(1.8rem, 9vw, 2.5rem);
+    }
+
+    .shop-banner-content p {
+        font-size: clamp(0.85rem, 4vw, 1rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .cta-button {
+        padding: 0.7rem 1.8rem;
+        font-size: 0.9rem;
+    }
+}

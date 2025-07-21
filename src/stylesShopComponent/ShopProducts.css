@@ -1,0 +1,334 @@
+/* Container - No changes needed here based on the image */
+.shop-container {
+    padding: 2rem 2rem 2rem 0;
+    margin: auto;
+    font-family: var(--ff-sans);
+    position: relative;
+    max-width: 100vw;
+}
+
+.shop-HEADING {
+    font-size: var(--fs-h3);
+    color: var(--color-9);
+    text-align: center;
+    box-shadow: 7px 7px 6px #8c98a4, -5px -5px 5px #8c98a4;
+    max-width: fit-content;
+    margin: 0 auto var(--space-md);
+    padding: var(--space-xs) var(--space-md);
+    border-bottom: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    border-radius: 2rem;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+
+}
+
+@media (max-width: 768px) {
+    .shop-container {
+        padding: 0;
+        max-width: 90vw;
+    }
+}
+
+/* Layout - No changes needed here based on the image */
+.shop-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .shop-layout {
+        flex-direction: column;
+    }
+}
+
+/* Sidebar */
+.filter-sidebar {
+    position: sticky;
+    top: clamp(4rem, 8vw + 1rem, 8rem);
+    align-self: flex-start;
+    width: 100%;
+    max-width: 250px;
+    min-width: 220px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 1.5rem;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--color-2);
+    box-shadow: 2px 1px 5px var(--color-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxs);
+    overflow: hidden;
+    box-sizing: border-box;
+    
+
+    /* Transition for smooth mobile open/close */
+    transition: all 0.3s ease-in-out;
+}
+
+
+.filter-sidebar h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-heading);
+}
+
+/* New: Styles for the filter header on mobile */
+.filter-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* Ensure it spans full width inside sidebar */
+    margin-bottom: 0 !important;
+    /* Override default h4 margin-bottom */
+    padding-bottom: 0.5rem;
+    /* Space below header, consistent with filter groups */
+    border-bottom: 1px solid var(--color-border-light);
+    /* Separator */
+    font-size: 1.25rem;
+    /* Keep title font size */
+    color: var(--color-heading);
+    /* Keep title color */
+}
+
+
+.collapsible-header {
+    margin-top: var(--space-sm);
+    margin-bottom: 0 !important;
+}
+
+/* New: Mobile toggle button */
+.mobile-filter-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    /* For icon alignment */
+    align-items: center;
+    color: var(--color-link);
+    /* Use a relevant color for the icon */
+}
+
+.mobile-filter-toggle svg {
+    font-size: 1.5rem;
+    /* Adjust icon size */
+}
+
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group strong {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-subheading);
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.filter-group strong .arrow {
+    font-size: 0.8rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* This class is now toggled by the FilterGroup component's internal state */
+.filter-group strong.collapsible-header .arrow.open {
+    transform: rotate(180deg);
+}
+
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    color: black;
+    cursor: pointer;
+}
+
+.checkbox-option input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-7);
+    border: 1px solid black;
+    border-radius: var(--radius-xs);
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.checkbox-option input[type="checkbox"]:checked {
+    background-color: var(--color-link);
+    border-color: var(--color-link);
+}
+
+.checkbox-option input[type="checkbox"]:checked::before {
+    content: '✔';
+    display: block;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    line-height: 16px;
+}
+
+
+@media (max-width: 768px) {
+    .filter-sidebar {
+        position: static;
+        /* No sticky on mobile */
+        max-width: 100%;
+        flex-direction: column;
+        /* Stack header and filter content */
+        gap: 0.5rem;
+        /* Adjust gap for mobile */
+        padding: 1rem;
+        height: max-content;
+    }
+
+    /* Hide filter groups by default on mobile */
+    .filter-groups-wrapper {
+        display: none;
+        width: 100%;
+        /* Ensure it takes full width when visible */
+        flex-direction: column;
+        /* Stack filter groups vertically */
+        gap: var(--space-sm);
+        /* Gap between filter groups */
+    }
+
+    /* Show filter groups when sidebar is open */
+    .filter-sidebar.filter-sidebar--open .filter-groups-wrapper {
+        display: flex;
+        padding-top: 1rem;
+        /* Space after header border */
+        border-top: 1px solid var(--color-border-light);
+        /* Separator when opened */
+        margin-top: 1rem;
+    }
+
+
+    .filter-group {
+        flex: unset;
+        /* Remove flex sizing */
+        width: 100%;
+        /* Each group takes full width on mobile */
+        min-width: unset;
+    }
+
+    /* Adjust filter-sidebar h4 for mobile */
+    .filter-sidebar h4 {
+        flex-basis: auto;
+        /* Allow header to size naturally */
+        margin-bottom: 0;
+        /* No bottom margin on h4 itself */
+    }
+
+    /* Hide the arrow within strong for mobile on all FilterGroups, as the main toggle handles visibility */
+    .filter-group strong .arrow {
+        display: none;
+    }
+}
+
+
+/* Product Grid */
+.product-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 3rem 1.5rem;
+}
+
+@media (max-width: 1180px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem 1.2rem;
+    }
+}
+
+.no-products-found {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    padding: 2rem;
+}
+
+/* Load More Button */
+.load-more-container {
+    grid-column: 1 / -1;
+    /* Span across all columns */
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    /* Space above the button */
+}
+
+.load-more-button {
+    background-color: var(--color-link);
+    /* Your theme's link color */
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 150px;
+    margin: var(--space-sm) auto;
+    /* Ensure a consistent button width */
+}
+
+.load-more-button:hover:not(:disabled) {
+    background-color: var(--color-7);
+    /* A slightly darker shade for hover */
+}
+
+.load-more-button:disabled {
+    background-color: #cccccc;
+    /* Light gray when disabled */
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* src/stylesShopComponent/ShopProducts.css */
+
+/* ... (existing CSS for .load-more-container, .load-more-button) */
+
+.end-of-results {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    /* Use a muted color */
+    text-align: center;
+    padding: 1rem;
+    margin: 0;
+    /* Remove default h4 margins */
+}
