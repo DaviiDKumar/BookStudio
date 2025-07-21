@@ -1,3 +1,5 @@
+/* src/stylesShopComponent/ShopHero.css */
+
 .shop-hero {
     display: flex;
     height: 20vw;
@@ -14,7 +16,6 @@
 }
 
 @media (max-width:640px) {
-
     .shop-hero {
         flex-direction: column;
         justify-content: center;
@@ -23,9 +24,7 @@
         max-width: 90vw;
         height: fit-content;
         max-height: 100vh;
-
     }
-
 }
 
 b {
@@ -41,10 +40,7 @@ b {
 }
 
 .shop-hero-left-title {
-
-
     font-size: var(--fs-h3);
-
 }
 
 .shop-hero-left-subtitle {
@@ -56,34 +52,24 @@ b {
     text-underline-offset: 5px;
 }
 
-@media (max-width:1024) {
+@media (max-width:1024px) { /* Added 'px' for valid media query */
     .shop-hero-left-subtitle {
-    align-self: flex-start;
- 
-   
+        align-self: flex-start;
+    }
 }
 
-
-    
-}
-
-@media (max-width:768px) {
-
-
+@media (max-width:768px) { /* Added 'px' for valid media query */
     .shop-hero-left {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-
     .shop-hero-left-title {
-
         align-self: flex-start;
         font-size: var(--fs-h4);
         margin: var(--space-sm) var(--space-xxs);
         margin-bottom: 5px;
     }
-
     .shop-hero-left-subtitle {
         display: flex;
         flex-direction: row-reverse;
@@ -91,82 +77,66 @@ b {
         margin: 0 var(--space-xxs);
         align-self: flex-start;
         font-size: var(--fs-h5);
-
     }
-
 }
-
-
-
-
-
-
-
-
 
 .shop-hero-right {
     display: flex;
-    width: 450px;
+    /* Adjust width if needed, but flex will manage children */
+    width: 450px; /* This sets the container width */
     gap: var(--space-sm);
 }
 
-.shop-hero-right img {
+/* --- CHANGE THIS SELECTOR --- */
+/* It now targets the Next.js Image wrapper directly */
+.shop-hero-image {
+    /* These styles apply to the wrapper around the actual <img> */
     width: 100%;
-    height: 100%;
+    height: 100%; /* If this causes issues, you might need to rely more on the aspect ratio set by width/height props */
     max-width: 280px;
-    max-height: auto;
-    object-fit: cover;
+    /* max-height: auto is redundant */
+    /* object-fit: cover is moved to the Image component's style prop */
 }
 
-@media (max-width:768) {
-    
-.shop-hero-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 450px;
-    gap: var(--space-sm);
-    margin-top:var(--space-md) ;
-}
-
-
-    .shop-hero-right img {
+@media (max-width:768px) { /* Added 'px' for valid media query */
+    .shop-hero-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 450px;
+        gap: var(--space-sm);
+        margin-top:var(--space-md) ;
+    }
+    /* --- CHANGE THIS SELECTOR --- */
+    .shop-hero-image {
         width: 100%;
-        height: 100%;
+        height: 100%; /* If this causes issues, adjust */
         max-width: 150px;
         max-height: 180px;
-        object-fit: cover;
+        /* object-fit: cover is moved to the Image component's style prop */
     }
-
 }
 
-
-@media (max-width:380) {
-    
-.shop-hero-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 450px;
-    gap: var(--space-sm);
-    margin-top:var(--space-md) ;
-}
-
-
-    .shop-hero-right img {
+@media (max-width:380px) { /* Added 'px' for valid media query */
+    .shop-hero-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 450px;
+        gap: var(--space-sm);
+        margin-top:var(--space-md) ;
+    }
+    /* --- CHANGE THIS SELECTOR --- */
+    .shop-hero-image {
         width: 100%;
-        height: 100%;
+        height: 100%; /* If this causes issues, adjust */
         max-width: 130px;
         max-height: 170px;
-        object-fit: cover;
+        /* object-fit: cover is moved to the Image component's style prop */
     }
-
 }
-
 
 .shop-icon {
     font-size: 1.8rem;
-
-
     vertical-align: middle;
 }

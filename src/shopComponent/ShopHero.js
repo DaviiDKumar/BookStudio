@@ -1,3 +1,5 @@
+// src/components/ShopHero.jsx
+
 'use client';
 
 import React from "react";
@@ -10,31 +12,36 @@ export const ShopHero = () => {
         <section className="shop-hero" id="shop">
             <div className="shop-hero-left">
                 <h2 className="shop-hero-left-title">
-                    A Good Deal <b>Doesn’t</b> Wait 
+                    A Good Deal <b>Doesn’t</b> Wait
                 </h2>
                 <h2 className="shop-hero-left-subtitle">
-                    <MdAccessTime className="shop-icon" /> Neither Should You 
+                    <MdAccessTime className="shop-icon" /> Neither Should You
                 </h2>
             </div>
 
             <div className="shop-hero-right">
-                {/* Replaced <img> with <Image /> */}
-                {/* IMPORTANT: Replace width and height with the actual dimensions of your /shop2.jpg */}
                 <Image
                     src="/shop2.jpg"
-                    alt="Open book surrounded by golden light, symbolizing a good deal on books" // Improved alt text
-                    width={600}  // Placeholder: Replace with actual width of shop2.jpg
-                    height={400} // Placeholder: Replace with actual height of shop2.jpg
-                    className="shop-hero-image" // Add a class for specific styling if needed
+                    alt="Open book surrounded by golden light, symbolizing a good deal on books"
+                    // IMPORTANT: Replace with ACTUAL WIDTH of shop2.jpg
+                    width={800}
+                    // IMPORTANT: Replace with ACTUAL HEIGHT of shop2.jpg
+                    height={533}
+                    className="shop-hero-image"
+                    style={{ objectFit: 'cover' }} // <--- Apply object-fit via style prop
+                    // Add priority if this image is also above the fold and critical
+                    // priority={true}
                 />
-                {/* Replaced <img> with <Image /> */}
-                {/* IMPORTANT: Replace width and height with the actual dimensions of your /shop3.jpg */}
                 <Image
                     src="/shop3.jpg"
-                    alt="Stack of vintage books with a bookmark, symbolizing a timeless offer" // Improved alt text
-                    width={600}  // Placeholder: Replace with actual width of shop3.jpg
-                    height={400} // Placeholder: Replace with actual height of shop3.jpg
-                    className="shop-hero-image" // Add a class for specific styling if needed
+                    alt="Stack of vintage books with a bookmark, symbolizing a timeless offer"
+                    // IMPORTANT: Replace with ACTUAL WIDTH of shop3.jpg
+                    width={800}
+                    // IMPORTANT: Replace with ACTUAL HEIGHT of shop3.jpg
+                    height={533}
+                    className="shop-hero-image"
+                    style={{ objectFit: 'cover' }} // <--- Apply object-fit via style prop
+                    priority // <--- Add priority if it's the one loading late and is above the fold
                 />
             </div>
         </section>
