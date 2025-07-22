@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 
 import { useState } from "react";
 import Link from "next/link";
@@ -14,6 +13,7 @@ import {
   faEnvelope,
   // Removed faBars and faTimes as we're using CSS bars now
 } from "@fortawesome/free-solid-svg-icons";
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,7 +37,8 @@ export default function Navbar() {
         <div className="navbar__inner">
           <div className="navbar__logo">
             <Link href="/" onClick={closeMenu}>
-              <img src="/Logo4.png" alt="Books Studio Logo" className="Logo-img" />
+
+              <h1> <MenuBookIcon className="svg"/>B<span>est</span> B<span>ooks</span> G<span>uide</span></h1>
             </Link>
 
           </div>

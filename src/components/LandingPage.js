@@ -43,8 +43,11 @@ const LandingPage = () => {
 
           <motion.div className="landing-page-top-left-heading" variants={fadeUp}>
             <h1 className="landing-page-title">Skip The Bestsellers</h1>
-            <h4><b>Find the Ones That Deserve It</b></h4>
-            <h4><b>A collection that reads beautifully and looks even better</b></h4><br />
+            <h4>
+              <b>Find the Ones That Deserve It</b><br />
+              <b>A collection that reads beautifully and looks even better</b><br />
+            </h4>
+
             <p>
               Discover journals crafted with care — perfect for keeping your thoughts safe, your ideas sacred, and your stories beautifully captured. Whether you’re a writer, thinker, or dreamer, our collection offers unique designs that inspire creativity and reflection.
             </p>
