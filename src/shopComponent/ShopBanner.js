@@ -15,7 +15,7 @@ export default function ShopBanner() { // Renamed component
         loop
         muted
         playsInline // Ensures video plays on iOS devices
-        poster="/images/banner-poster.jpg" // Path to a static image shown while video loads
+        poster="/shopbg2.jpg" // Path to a static image shown while video loads
       >
         <source src="/Bannervideo1.mp4" type="video/mp4" />
         {/* You can add more <source> tags for different video formats for wider browser support */}

@@ -33,7 +33,7 @@ export const ShopHero = () => {
                     // priority={true}
                 />
                 <Image
-                    src="/shop3.jpg"
+                    src="/Shop3.jpg"
                     alt="Stack of vintage books with a bookmark, symbolizing a timeless offer"
                     // IMPORTANT: Replace with ACTUAL WIDTH of shop3.jpg
                     width={800}
