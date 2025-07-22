@@ -64,11 +64,11 @@
 }
 
 .top-image {
-    background-image: url('/poster4.jpg');
+    background-image: url('/poster4.webp');
 }
 
 .bottom-image {
-    background-image: url('/poster5.jpg');
+    background-image: url('/poster5.webp');
 }
 
 /* === Mobile styles === */
@@ -100,12 +100,12 @@
     }
 
     .top-row {
-        background-image: url('/poster4.jpg');
+        background-image: url('/poster4.webp');
      
     }
 
     .bottom-row {
-        background-image: url('/poster5.jpg');
+        background-image: url('/poster5.webp');
 
 
     }
