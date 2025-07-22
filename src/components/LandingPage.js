@@ -60,13 +60,16 @@ const LandingPage = () => {
 
           <div className="landing-page-support-img">
             <motion.div variants={slideLeft}>
-              <Image src="/miniposter2.jpg" alt="Support Poster 1" width={120} height={180} />
+              <Image src="/miniposter2.jpg" alt="Support Poster 1" width={120} height={180} placeholder="blur"
+              />
             </motion.div>
             <motion.div variants={fadeUp}>
-              <Image src="/poster2.jpg" alt="Support Poster 2" width={120} height={180} />
+              <Image src="/poster2.jpg" alt="Support Poster 2" width={120} height={180} placeholder="blur"
+              />
             </motion.div>
             <motion.div variants={slideRight}>
-              <Image src="/miniposter3.jpg" alt="Support Poster 3" width={120} height={180} />
+              <Image src="/miniposter3.jpg" alt="Support Poster 3" width={120} height={180} placeholder="blur"
+              />
             </motion.div>
           </div>
         </motion.div>
